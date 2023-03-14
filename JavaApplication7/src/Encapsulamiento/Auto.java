@@ -14,12 +14,14 @@ public class Auto {
     private String placa;
     private String marca;
     private String color;
+    private Motor motor;
     
 
-    public Auto(String placa, String marca, String color) {
+    public Auto(String placa, String marca, String color, Motor motor) {
         this.placa = placa;
         this.marca = marca;
         this.color = color;
+        this.motor = motor;
     }
     
     //Get placa
@@ -33,36 +35,70 @@ public class Auto {
     
     public void setPlaca(String placa){
         int numCaracteres = placa.length();
-        String C1,C2,C3,C4,C5,C6;
-        String Numeros = "1234567890";
-        boolean esPlaca = false;
+        String Letras, Numeros;
+        String listaNumeros = "1234567890";
+        boolean esNumero = false;
+        boolean esLetra = true;
+        
         if (numCaracteres == 6){  
-        C1 = placa.substring(0,1);
-        C2 = placa.substring(1,2); 
-        C3 = placa.substring(2,3); 
-        C4 = placa.substring(3,4); 
-        C5 = placa.substring(4,5); 
-        C6 = placa.substring(5,6); 
+        Letras = placa.substring (0,3);
+        Numeros = placa.substring (3,6);
         this.placa = placa;
         //for
-        for(int i = 0; i<Numeros.length(); i++){
-            if (C1.equalsIgnoreCase(Numeros.substring(i,i+1))== false){
-                esPlaca = true;
+        for(char i : Letras.toCharArray()){
+            esLetra = true;            
+            for(char j : listaNumeros.toCharArray() ){
+                if (i == j){
+                    esLetra = false;
+                }
                 
+            }
+            if (esLetra == false){
+                break;
             }
         }
         
-        if (esPlaca){
-            this.placa = placa;
-        }else{
-            JOptionPane.showMessageDialog(, esPlaca);
-        }
-    }else{
-            JOptionPane.showMessageDialog(null, "La placa no es valida");
-        }
-    }
+       for (char i : Numeros.toCharArray()){
+           for(char j : listaNumeros.toCharArray()){
+               if (i == j){
+                   esNumero = true;
+               }
+           }
+       }
+       if(esNumero && esLetra){
+           this.placa = placa;
+       }else{
+           JOptionPane.showMessageDialog(null, "La placa no es valida");
+       }
+    
     
     
             
     
+}else{
+    JOptionPane.showMessageDialog(null, "la placa no es valida");    
 }
+
+}
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public Motor getMotor() {
+        return motor;
+    }
+    
+ public void encenderAuto(){
+     this.motor.encenderMotor();
+ }
+    public boolean isEncendido(){
+        return this.motor.isMotorOn();
+        
+    }
+}
+        
