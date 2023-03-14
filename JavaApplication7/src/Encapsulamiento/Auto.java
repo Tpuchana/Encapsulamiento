@@ -96,9 +96,13 @@ public class Auto {
  public void encenderAuto(){
      this.motor.encenderMotor();
  }
+ public void apagarAuto(){
+     this.motor.apagarMotor();
+ }
     public boolean isEncendido(){
         return this.motor.isMotorOn();
         
     }
+    
 }
         

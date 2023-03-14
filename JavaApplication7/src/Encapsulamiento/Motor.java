@@ -58,18 +58,16 @@ public class Motor {
     }
     public void apagarMotor(){
         if(this.isMotorOn()){
-            this.motorOn = false;
+            this.motorOn = true;
             JOptionPane.showMessageDialog(null, "El motor ya está apagado");
         }else{
-            this.motorOn = true;
+            this.motorOn = false;
             JOptionPane.showMessageDialog(null, "Apagando motor...  ");
         }
         
     }
 
-    void setMotorOn(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+   
     
     
     

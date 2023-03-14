@@ -40,7 +40,10 @@ public class Principal {
                 
 //    Encender auto
         A1.encenderAuto();
-        System.out.println("Motor Encendido: " + A1.getMotor().isMotorOn());
+        System.out.println("Motor Encendido: " + A1.isEncendido());
+        A1.encenderAuto();
+        A1.apagarAuto();
+        System.out.println("Motor Encendido: " + A1.isEncendido());
     
 }
 }
