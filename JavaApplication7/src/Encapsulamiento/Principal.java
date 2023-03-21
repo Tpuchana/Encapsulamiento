@@ -44,6 +44,7 @@ public class Principal {
         A1.encenderAuto();
         A1.apagarAuto();
         System.out.println("Motor Encendido: " + A1.isEncendido());
+        
     
 }
 }
