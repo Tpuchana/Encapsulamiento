@@ -40,10 +40,20 @@ public class Principal {
                 
 //    Encender auto
         A1.encenderAuto();
-        System.out.println("Motor Encendido: " + A1.isEncendido());
-        A1.encenderAuto();
+        JOptionPane.showMessageDialog(null, A1);
+        A1.acelerarAuto();
+        String entrada = (JOptionPane.showInputDialog("Ingrese la velocidad"));
+        velocidad = Float.parseFloat(entrada);
+        A1.acelerarAuto(velocidad);
+        JOptionPane.showMessageDialog(null, A1);
+        A1.getMotor().acelerarMotor();
+        JOptionPane.showMessageDialog(null, A1);
+        A1.getMotor().frenarMotor();
+        JOptionPane.showMessageDialog(null, A1);
         A1.apagarAuto();
-        System.out.println("Motor Encendido: " + A1.isEncendido());
+        JOptionPane.showMessageDialog(null, A1);
+        A1.acelerarAuto();
+        
         
     
 }

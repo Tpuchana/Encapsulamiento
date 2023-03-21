@@ -15,6 +15,7 @@ public class Auto {
     private String marca;
     private String color;
     private Motor motor;
+    float velocidad = 0;
     
 
     public Auto(String placa, String marca, String color, Motor motor) {
@@ -99,10 +100,22 @@ public class Auto {
  public void apagarAuto(){
      this.motor.apagarMotor();
  }
+    public void acelerarAuto(){
+        this.motor.acelerarMotor(velocidad);
+    }
     public boolean isEncendido(){
         return this.motor.isMotorOn();
         
     }
+    public void frenarMotor(){
+        this.motor.frenarMotor(velocidad);
+    }
+
+    @Override
+    public String toString() {
+        return "Auto{" + "placa=" + placa + ", marca=" + marca + ", color=" + color + ", motor=" + motor + '}';
+    }
+    
     
 }
         

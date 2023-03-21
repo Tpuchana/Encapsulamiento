@@ -24,6 +24,7 @@ public class Motor {
         this.cilndraje = cilndraje;
         this.velocidad = 0;
         this.motorOn = false;
+        
     }
     
     //getters
@@ -58,15 +59,63 @@ public class Motor {
     }
     public void apagarMotor(){
         if(this.isMotorOn()){
-            this.motorOn = true;
-            JOptionPane.showMessageDialog(null, "El motor ya está apagado");
+            if (this.velocidad == 0){
+               this.motorOn = false;
+               JOptionPane.showMessageDialog(null, "apagando motor..."); 
+            }
+            
         }else{
-            this.motorOn = false;
-            JOptionPane.showMessageDialog(null, "Apagando motor...  ");
+            
+            JOptionPane.showMessageDialog(null, "El vehículo está en movimiento  ");
         }
         
     }
+    public void acelerarMotor(){
+        if (this.isMotorOn()){
+            this.velocidad += 10;
+            //this.velocidad = this.velocidad + 10;
+            JOptionPane.showMessageDialog(null, "Acelerando...");
+        }else{
+            JOptionPane.showMessageDialog(null, "El motor está apagado, enciéndalo");
+            
+        }
+        
+    }
+      public void acelerarMotor(float velocidad){
+        if (this.isMotorOn()){
+            this.velocidad += velocidad;
+            //this.velocidad = this.velocidad + 10;
+            JOptionPane.showMessageDialog(null, "Acelerando...");
+        }else{
+            JOptionPane.showMessageDialog(null, "El motor está apagado, enciéndalo");
+            
+        }
+        
+    }
+    public void frenarMotor(){
+            this.velocidad -= velocidad;            
+            if (this.velocidad>=0){           
+            JOptionPane.showMessageDialog(null, "Frenando..."); 
+            }else{
+                this.velocidad = 0;
+                JOptionPane.showMessageDialog(null, "Está frenado");                
+            }
+             public void frenarMotor(float velocidad){
+            this.velocidad -= 10;            
+            if (this.velocidad>=0){           
+            JOptionPane.showMessageDialog(null, "Frenando..."); 
+            }else{
+                this.velocidad = 0;
+                JOptionPane.showMessageDialog(null, "Está frenado");                
+            }     
+            
+       
+    }
 
+    @Override
+    public String toString() {
+        return "Motor{" + "numeroSerie=" + numeroSerie + ", cilndraje=" + cilndraje + ", velocidad=" + velocidad + ", motorOn=" + motorOn + '}';
+    }
    
     
     
